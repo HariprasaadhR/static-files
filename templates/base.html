@@ -1,0 +1,33 @@
+<!--{%load static%}-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+    <title>Base Page</title>
+    {% endblock %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</head>
+<body>
+    {%include 'partials/_topbar.html' %}
+    {%include 'partials/_navbar.html' %}
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          {% block content %}
+          <h1 class="display-4">You've landed yourself in the Base Page.</h1>
+          <img src="{% static 'images/django_logo.png'%}" class="img-fluid" alt="Responsive image">
+          <a href="{% url 'myapp:home' %}">Home</a>
+            <a href="{% url 'myapp:profile' %}">Profile</a>
+          {% endblock %}
+<p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+        </div>
+      </div>
+
+{%include 'partials/_footer.html' %}
+
+</body>
+</html>
